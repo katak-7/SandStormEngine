@@ -11,7 +11,7 @@ public:
     void Update() override;
     void Shutdown() override;
 private:
-    SDL_Window* m_window;
-    SDL_Renderer* m_renderer;
+    SDL_Window* m_window{};
+    SDL_Renderer* m_renderer{};
 };
 #endif //SANDSTORMENGINE_SYSTEM_RENDER_H

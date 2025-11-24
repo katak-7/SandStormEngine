@@ -1,8 +1,7 @@
 #include "system_render.h"
+#include "engine.h"
 
 #include <iostream>
-\
-#include "engine.h"
 
 Render_System::Render_System() {
     std::cout << "Render System Constructor" << std::endl;

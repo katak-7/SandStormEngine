@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#include "System/system.h"
+#include "system.h"
 
 template <typename T>
 concept DerivedFromISystem = std::is_base_of_v<ISystem, T>;
@@ -21,15 +21,14 @@ public:
 
     template <DerivedFromISystem  T>
     void registerSystem();
-
+    static bool m_running;
 private:
-    void init() const;
+    void init();
     void update();
     void shutdown() const;
 
     std::vector<std::unique_ptr<ISystem>> m_systems;
     std::string m_name{};
-    bool m_running{true};
 };
 
 template<DerivedFromISystem T>

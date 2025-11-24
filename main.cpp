@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Engine/engine.h"
-#include "Engine/System/system_render.h"
+#include "Engine/system_render.h"
 
 int main() {
     Engine SSE("SandStormEngine");

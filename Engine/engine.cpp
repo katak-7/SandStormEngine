@@ -5,6 +5,8 @@
 #include "engine.h"
 #include <iostream>
 
+bool Engine::m_running{false};
+
 void Engine::run() {
     std::cout << m_name << " is running" << std::endl;
     init();
@@ -12,20 +14,21 @@ void Engine::run() {
     shutdown();
 }
 
-void Engine::init() const {
+void Engine::init() {
     std::cout << m_name << " is initializing" << std::endl;
+    Engine::m_running = true;
     for ( auto& system : m_systems ) {
         system->Initialize();
     }
 }
 
 void Engine::update() {
-    while (m_running) {
+    while (Engine::m_running) {
         std::cout << m_name << " is in update loop" << std::endl;
         for ( auto& system : m_systems ) {
             system->Update();
         }
-        m_running = false;
+        //m_running = false;
     }
 }
 
